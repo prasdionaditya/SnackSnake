@@ -89,8 +89,16 @@ def gameLoop():
                     x1_change = 0
                     direction = 'down'
 
-        if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:
-            game_close = True
+        #endless map
+        if x1 >= dis_width:
+            x1 = 0
+        if x1 < 0:
+            x1 = dis_width - snake_block
+        if y1 >= dis_height:
+            y1 = 0
+        elif y1 < 0:
+            y1 = dis_height - snake_block
+
         x1 += x1_change
         y1 += y1_change
 
